@@ -18,14 +18,28 @@ namespace Unity.OBUCLE.Game
             //AudioUtility.SetMasterVolume(1);
             inGameMenu = GameObject.Find("inGameMenu");
             inGameMenu.SetActive(false);
-            
+        
         }
 
         // Update is called once per frame
         void Update()
         {
+
+
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+
+                if (Application.isEditor)
+                {
+                    if(Application.isPlaying){
+                        Application
+                    }
+                   
+                }
+                
+
+
+
                 Debug.Log(inGameMenu);
                 if(inGameMenu.activeSelf){
                     inGameMenu.SetActive(false);

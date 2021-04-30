@@ -12,6 +12,8 @@ namespace Unity.OBUCLE.UI
         [Tooltip("Root GameObject of the menu used to toggle its activation")]
         public GameObject MenuRoot;
 
+        [Header("Cosas para el futuro ------------------>")]
+
         [Tooltip("Master volume when menu is open")] [Range(0.001f, 1f)]
         public float VolumeWhenMenuOpen = 0.5f;
 
