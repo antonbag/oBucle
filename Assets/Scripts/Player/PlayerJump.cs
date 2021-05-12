@@ -14,12 +14,15 @@ public class PlayerJump : MonoBehaviour
     {
         gm = FindObjectOfType<GameFlowManager>();
         rb = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         if(!gm.canMove) return;
+
+        
 
         if (Input.GetKeyDown(KeyCode.Space)) {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);

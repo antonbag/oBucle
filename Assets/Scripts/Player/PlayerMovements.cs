@@ -17,6 +17,7 @@ public class PlayerMovements : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         gm = FindObjectOfType<GameFlowManager>();
 
+        
 
     }
 

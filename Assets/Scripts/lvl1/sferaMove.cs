@@ -5,6 +5,7 @@ using UnityEngine;
 public class sferaMove : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject sun;
     void Start()
     {
         
@@ -15,6 +16,8 @@ public class sferaMove : MonoBehaviour
     {
 
         transform.position = new Vector3(Mathf.Sin(Time.time), 1.0f, 2.28f);
+
+        sun.transform.rotation = Quaternion.Euler((Mathf.Sin(Time.time)*20)+10,0,0);
 
     }
 }
