@@ -34,6 +34,8 @@ namespace Unity.OBUCLE.Gameplay
         void Start()
         {
 
+            Debug.Log(gameObject.name, gameObject);
+
 /* 
             DebugUtility.HandleErrorIfNullGetComponent<PlayerCharacterController, PlayerInputHandler>(
                 m_PlayerCharacterController, this, gameObject);

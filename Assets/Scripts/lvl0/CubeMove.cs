@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CubeMove : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Rigidbody rb;
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-           transform.position = new Vector3(-2.0f, 1.0f, Mathf.Sin(Time.time)-2.55f);
+           transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Sin(Time.time)+4.55f);
     }
 }
 

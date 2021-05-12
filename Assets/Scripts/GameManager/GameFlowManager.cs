@@ -4,20 +4,39 @@ using UnityEngine.SceneManagement;
 namespace Unity.OBUCLE.Game
 {
 
+    
+
     public class GameFlowManager : MonoBehaviour
     {
 
         [Header("Scenes")] [Tooltip("Scene to start on play")]
-        public int  StartScene = 1;
+        public string StartScene = "StartScene";
+
+        public bool canMove = false;
 
         GameObject inGameMenu;
+
+        public bool GameIsEnding { get; private set; }
+
+        void Awake() {
+            //START MENU
+            if(StartScene == SceneManager.GetActiveScene().name){
+                Debug.Log("IS START!!");
+                canMove = false;
+            }
+        }
+
 
         // Start is called before the first frame update
         void Start()
         {
+
+            
+
+
             //AudioUtility.SetMasterVolume(1);
             inGameMenu = GameObject.Find("inGameMenu");
-            inGameMenu.SetActive(false);
+            if(inGameMenu) inGameMenu.SetActive(false);
         
         }
 
@@ -26,21 +45,25 @@ namespace Unity.OBUCLE.Game
         {
 
 
+
+
+
+            //ESC
             if (Input.GetKeyDown(KeyCode.Escape))
             {
 
+                //START MENU
+                if(StartScene == SceneManager.GetActiveScene().name){
+                    Debug.Log("IS START!! no muestro el menu");
+                    return;
+                }
+
                 if (Application.isEditor)
                 {
-                    if(Application.isPlaying){
-                        Application
-                    }
-                   
+                    Debug.Log("is Editor!");
                 }
                 
 
-
-
-                Debug.Log(inGameMenu);
                 if(inGameMenu.activeSelf){
                     inGameMenu.SetActive(false);
                 }else{

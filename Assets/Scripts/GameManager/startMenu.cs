@@ -9,6 +9,9 @@ namespace Unity.OBUCLE.UI
     public class startMenu : MonoBehaviour
     {
 
+        GameFlowManager gm;  
+        
+
         [Tooltip("Root GameObject of the menu used to toggle its activation")]
         public GameObject MenuRoot;
 
@@ -29,13 +32,12 @@ namespace Unity.OBUCLE.UI
         [Tooltip("Toggle component for framerate display")]
         public Toggle FramerateToggle;
 
-        [Tooltip("GameObject for the controls")]
+        [Tooltip("GameObject for the controls")]   
         public GameObject ControlImage;
 
         //PlayerInputHandler m_PlayerInputsHandler;
         //Health m_PlayerHealth;
         //FramerateCounter m_FramerateCounter;
-
 
         public void GoToScene(bool show)
         {
@@ -46,6 +48,11 @@ namespace Unity.OBUCLE.UI
         // Start is called before the first frame update
         void Start()
         {
+
+            gm = FindObjectOfType<GameFlowManager>();
+            
+            //Debug.Log(gm.GetComponent<GameFlowManager>().canMove);
+            //Debug.Log(gm.canMove);
 
             /*         
             
@@ -117,6 +124,12 @@ namespace Unity.OBUCLE.UI
              */
         }
         
+
+
+        public void exitObucle(){
+            Debug.Log("EXIT GAME");
+            Application.Quit();
+        }
     
     }
 }
