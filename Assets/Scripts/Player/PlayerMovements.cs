@@ -9,15 +9,23 @@ public class PlayerMovements : MonoBehaviour
     GameFlowManager gm;  
     //[SerializeField] private float speed;
     
-    public float speed = 1;
+    public float speed = 1.0f;
+    float x;
+    float z;
+    float y;
+
+    float atenuadorTiny;
+
 
     void Start()
     {
 
         rb = GetComponent<Rigidbody>();
         gm = FindObjectOfType<GameFlowManager>();
+       
+        atenuadorTiny = transform.localScale.y;
 
-        
+    
 
     }
 
@@ -25,14 +33,31 @@ public class PlayerMovements : MonoBehaviour
     void Update()
     {
 
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
+        x = Input.GetAxisRaw("Horizontal");
+        z = Input.GetAxisRaw("Vertical");
 
-        if(gm.canMove){
-            Vector3 moveBy = transform.right * x + transform.forward * z;
-            rb.MovePosition(transform.position + moveBy.normalized * speed * Time.deltaTime);
+        //cuando eres pequeño corres menos
+        atenuadorTiny = transform.localScale.y;
+
+        //volver al inicio si te sales de la pantallas
+        y = this.transform.position.y; 
+        if(y < -10){
+            transform.position = new Vector3(0,0,0);
+            x = 0;
         }
 
-   
+
     }
+    void FixedUpdate()
+    {
+        if(gm.canMove){
+            //Debug.Log(atenuadorTiny);
+            Vector3 moveBy = transform.right * x + transform.forward * z;
+            //Debug.Log(moveBy);
+            rb.MovePosition(transform.position + moveBy.normalized * speed * atenuadorTiny * Time.deltaTime);
+        }
+    }
+
+
+
 }

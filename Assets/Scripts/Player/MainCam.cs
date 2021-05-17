@@ -13,6 +13,8 @@ public class MainCam : MonoBehaviour
     public float sensitivity;
     float headRotation = 0f;
     
+    float x,y;
+
     public float headRotationLimit = 90f;
 
 
@@ -27,10 +29,12 @@ public class MainCam : MonoBehaviour
     void Update()
     {
 
-        float x = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        float y = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime * -1f;
+        x = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        y = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime * -1.0f;
 
+        //Si se puede mover
         if(gm.canMove){
+
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 
