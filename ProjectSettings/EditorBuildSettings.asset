@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/oBucle_lvl1.unity
     guid: 5641b853d94694bbf993886ff4375565
+  - enabled: 1
+    path: Assets/Scenes/oBucle_lvl2.unity
+    guid: 4c4c29d9b5103ef41a2d50a6ef071e30
   m_configObjects: {}
