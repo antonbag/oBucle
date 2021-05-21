@@ -14,9 +14,18 @@ namespace Unity.OBUCLE.Game
 
         public bool canMove = false;
 
+        [Header("Menu Options")] [Tooltip("Menu options")]
+        public bool globalFX = true;
+
         GameObject inGameMenu;
 
+
+
         public bool GameIsEnding { get; private set; }
+
+
+
+
 
         void Awake() {
             

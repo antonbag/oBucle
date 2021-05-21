@@ -6,6 +6,7 @@ TagManager:
   tags:
   - tinier
   - bigger
+  - human
   layers:
   - Default
   - TransparentFX
