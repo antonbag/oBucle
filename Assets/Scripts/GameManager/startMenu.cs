@@ -49,7 +49,7 @@ namespace Unity.OBUCLE.UI
         void Start()
         {
 
-            gm = FindObjectOfType<GameFlowManager>();
+            //gm = FindObjectOfType<GameFlowManager>();
             
             //Debug.Log(gm.GetComponent<GameFlowManager>().canMove);
             //Debug.Log(gm.canMove);

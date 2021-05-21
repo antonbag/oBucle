@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
+using Unity.OBUCLE.Game;
 
 public class PlayerCollisions : MonoBehaviour
 {
@@ -59,7 +58,8 @@ public class PlayerCollisions : MonoBehaviour
     Rigidbody rb;
     PlayerJump pJump;
     PlayerMovements pMovs;
-
+    GameFlowManager gm;
+    
 
 
     // Start is called before the first frame update
@@ -70,11 +70,7 @@ public class PlayerCollisions : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         pJump = GetComponent<PlayerJump>();
         pMovs = GetComponent<PlayerMovements>();
-
-
-        //animals.Add("human", new animalValues{0.10f,1.5f,10f,20f});
-
-        //currentAnimal = animals[0];
+        gm = FindObjectOfType<GameFlowManager>();
     }
 
 
@@ -83,15 +79,12 @@ public class PlayerCollisions : MonoBehaviour
     void Update()
     {
         
-
         if(transforming){
             //scaleChange -= scaleChange * Time.deltaTime;
             //mainCam.fieldOfView += animals[transformingTo]["minScale"]*Time.deltaTime;
             transform.localScale = scaleChange;
             transformingScale();
         }
-        
-
 
     }
 
@@ -104,8 +97,6 @@ public class PlayerCollisions : MonoBehaviour
                 scaleChange -= scaleChange * Time.deltaTime;
                 mainCam.fieldOfView += animals[transformingTo]["mainFOV"]*Time.deltaTime;
                 
-
-
             }else{
                 transforming = false;
             }
@@ -114,7 +105,6 @@ public class PlayerCollisions : MonoBehaviour
         //HUMAN
         if(transformingTo == "human"){
            
-            Debug.Log(transforming);
 
             if(scaleChange.x == animals[transformingTo]["mainScale"]) transforming = false;
 
@@ -216,8 +206,12 @@ public class PlayerCollisions : MonoBehaviour
     //TRIGGER Mas eficiente
     private void OnTriggerEnter(Collider otro)
     {
-
         Debug.Log(otro.tag);
+
+        if(otro.tag == "levelComplete"){
+            levelComplete();
+        }
+
   
         transforming = true;
 
@@ -244,7 +238,14 @@ public class PlayerCollisions : MonoBehaviour
     }
 
 
+    private void levelComplete(){
 
+        Debug.Log("levelComplete from collision");
+
+        //Fade
+        gm.lvlEndFade();
+     
+    }
 
 
 

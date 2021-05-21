@@ -9,8 +9,9 @@ namespace Unity.OBUCLE.Game
     public class GameFlowManager : MonoBehaviour
     {
 
-        [Header("Scenes")] [Tooltip("Scene to start on play")]
+        [Header("SCENES")] [Tooltip("Scene to start on play")]
         public string StartScene = "StartScene";
+        public string nextScene;
 
         public bool canMove = false;
 
@@ -18,8 +19,10 @@ namespace Unity.OBUCLE.Game
         public bool globalFX = true;
 
         GameObject inGameMenu;
+        lvlCompFade lvlCompleteFade;
 
 
+        //LevelComplete levelCompleteScript;
 
         public bool GameIsEnding { get; private set; }
 
@@ -47,7 +50,10 @@ namespace Unity.OBUCLE.Game
 
             //AudioUtility.SetMasterVolume(1);
             inGameMenu = GameObject.Find("inGameMenu");
+            //lvlCompleteFade = GameObject.Find("lvlCompleteFade");
             if(inGameMenu) inGameMenu.SetActive(false);
+
+            lvlCompleteFade = FindObjectOfType<lvlCompFade>();
 
         }
 
@@ -58,12 +64,10 @@ namespace Unity.OBUCLE.Game
 
 
 
-
             //ESC
             if (Input.GetKeyDown(KeyCode.Escape))
             {
 
-                
 
                 //START MENU
                 if(StartScene == SceneManager.GetActiveScene().name){
@@ -90,6 +94,21 @@ namespace Unity.OBUCLE.Game
             }
         }
 
+
+        public void lvlEndFade(){
+
+            Debug.Log("LEVEL end... go to Fade");
+            canMove = false;
+            lvlCompleteFade.StartFading();
+            //SceneManager.LoadScene(nextScene);
+
+        }
+
+        public void loadNextScene(){
+
+            SceneManager.LoadScene(nextScene);
+
+        }
 
     }
 
