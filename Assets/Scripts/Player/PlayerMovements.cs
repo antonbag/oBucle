@@ -19,15 +19,12 @@ public class PlayerMovements : MonoBehaviour
 
     void Start()
     {
-
         rb = GetComponent<Rigidbody>();
         gm = FindObjectOfType<GameFlowManager>();
        
         atenuadorTiny = transform.localScale.y;
-
-    
-
     }
+
 
     // Update is called once per frame
     void Update()
@@ -45,9 +42,9 @@ public class PlayerMovements : MonoBehaviour
             transform.position = new Vector3(0,0,0);
             x = 0;
         }
-
-
     }
+
+
     void FixedUpdate()
     {
         if(gm.canMove){
