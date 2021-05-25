@@ -26,15 +26,15 @@ public class PlayerCollisions : MonoBehaviour
                 {"mainFOV", 1f},
                 {"speed",7f},
                 {"mass", 0.5f},
-                {"jump",3f}
+                {"jump", 3f}
             }
         },
         {
             "giraffe", new Dictionary<string,float>(){
-                {"mainScale", 2f},
+                {"mainScale", 1f},
                 {"mainFOV", 1f},
                 {"speed",3f},
-                {"mass", 2f},
+                {"mass", 8f},
                 {"jump",5f}
             }
         }

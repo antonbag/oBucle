@@ -36,12 +36,12 @@ public class PlayerMovements : MonoBehaviour
         //cuando eres pequeño corres menos
         atenuadorTiny = transform.localScale.y;
 
-        //volver al inicio si te sales de la pantallas
+ /*        //volver al inicio si te sales de la pantallas
         y = this.transform.position.y; 
         if(y < -10){
             transform.position = new Vector3(0,0,0);
             x = 0;
-        }
+        } */
     }
 
 
