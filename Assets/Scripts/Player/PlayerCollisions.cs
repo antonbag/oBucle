@@ -15,7 +15,7 @@ public class PlayerCollisions : MonoBehaviour
             "human", new Dictionary<string,float>(){
                 {"mainScale", 0.5f},
                 {"mainFOV", 1f},
-                {"speed",4f},
+                {"speed",10f},
                 {"mass", 1.0f},
                 {"jump",5f}
             }
@@ -33,7 +33,7 @@ public class PlayerCollisions : MonoBehaviour
             "giraffe", new Dictionary<string,float>(){
                 {"mainScale", 2f},
                 {"mainFOV", 1f},
-                {"speed",2f},
+                {"speed",3f},
                 {"mass", 2f},
                 {"jump",5f}
             }
