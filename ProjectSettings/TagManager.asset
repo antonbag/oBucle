@@ -8,6 +8,7 @@ TagManager:
   - bigger
   - human
   - levelComplete
+  - fx_volume
   layers:
   - Default
   - TransparentFX

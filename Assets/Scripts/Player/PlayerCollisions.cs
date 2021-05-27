@@ -10,10 +10,12 @@ public class PlayerCollisions : MonoBehaviour
     
     [Header("Teriomorfismos")] [Tooltip("Cambiador de sizes")]
 
+
+
     public Dictionary<string, Dictionary<string,float>> animals = new Dictionary<string, Dictionary<string,float>>(){
         {
             "human", new Dictionary<string,float>(){
-                {"mainScale", 0.5f},
+                {"mainScale", 0.05f},
                 {"mainFOV", 1f},
                 {"speed",10f},
                 {"mass", 1.0f},
@@ -71,6 +73,8 @@ public class PlayerCollisions : MonoBehaviour
         pJump = GetComponent<PlayerJump>();
         pMovs = GetComponent<PlayerMovements>();
         gm = FindObjectOfType<GameFlowManager>();
+
+
     }
 
 
@@ -121,6 +125,9 @@ public class PlayerCollisions : MonoBehaviour
             }
             //MAYOR
             if(transformingFrom == "giraffe"){
+
+                Debug.Log(animals[transformingTo]["mainScale"]);
+
                 if(scaleChange.x >= animals[transformingTo]["mainScale"]){
                     //Debug.Log(collision.collider.name);
                     scaleChange -= scaleChange * Time.deltaTime;
@@ -218,15 +225,19 @@ public class PlayerCollisions : MonoBehaviour
         if(otro.tag == "tinier"){
             transformingFrom = transformingTo;
             transformingTo = "mouse";
+            animals[transformingTo]["mainScale"] = otro.GetComponent<pisadorAnimal>().mainScale;
         }
 
         if(otro.tag == "human"){
             transformingFrom = transformingTo;
             transformingTo = "human";
+            animals[transformingTo]["mainScale"] = otro.GetComponent<pisadorAnimal>().mainScale;
         }
+        
         if(otro.tag == "bigger"){
             transformingFrom = transformingTo;
             transformingTo = "giraffe";
+            animals[transformingTo]["mainScale"] = otro.GetComponent<pisadorAnimal>().mainScale;
         }
         
         rb.mass = animals[transformingTo]["mass"]; 
