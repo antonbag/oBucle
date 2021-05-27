@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//DETECCION DE TRAMPANTOJO
+
 public class showTrampantojo : MonoBehaviour
 {
     public GameObject objectTrampantojo;
@@ -91,8 +94,6 @@ float angel;
             }
                 
         
-
-
     }
 
 
