@@ -36,6 +36,8 @@ public class PlayerJump : MonoBehaviour
             if(_tiempoTranscurrido >= 1){
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 _tiempoTranscurrido=0;
+
+                Debug.Log("puedo saltar");
             }            
         }
 

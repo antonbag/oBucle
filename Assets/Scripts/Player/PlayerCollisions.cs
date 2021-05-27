@@ -11,7 +11,12 @@ public class PlayerCollisions : MonoBehaviour
     [Header("Teriomorfismos")] [Tooltip("Cambiador de sizes")]
 
     float mainScale = 1f;
+    float speed = 10f;
+    float mass = 1f;
+    float jump = 5f;
 
+
+    //DEPRECATED
     public Dictionary<string, Dictionary<string,float>> animals = new Dictionary<string, Dictionary<string,float>>(){
         {
             "human", new Dictionary<string,float>(){
@@ -96,7 +101,8 @@ public class PlayerCollisions : MonoBehaviour
 
         //MOUSE
         if(transformingTo == "mouse"){
-            if(scaleChange.x >= animals[transformingTo]["mainScale"]){
+            //if(scaleChange.x >= animals[transformingTo]["mainScale"]){
+            if(scaleChange.x >= mainScale){
                 //Debug.Log(collision.collider.name);
                 scaleChange -= scaleChange * Time.deltaTime;
                 mainCam.fieldOfView += animals[transformingTo]["mainFOV"]*Time.deltaTime;
@@ -115,7 +121,8 @@ public class PlayerCollisions : MonoBehaviour
 
             //hay que crecer
             if(transformingFrom == "mouse"){
-                if(scaleChange.x <= animals[transformingTo]["mainScale"]){
+                //if(scaleChange.x <= animals[transformingTo]["mainScale"]){
+                if(scaleChange.x <= mainScale){
                     //Debug.Log(collision.collider.name);
                     scaleChange += scaleChange * Time.deltaTime;
                     mainCam.fieldOfView -= animals[transformingTo]["mainFOV"]*Time.deltaTime;
@@ -219,6 +226,9 @@ public class PlayerCollisions : MonoBehaviour
         Debug.Log(otro.tag);
 
         if(otro.tag == "levelComplete"){
+            
+            //si el objeto tiene un override de escenas...
+            if(otro.GetComponentInParent<lvlCompObject>().overrideNextScene != "") gm.nextScene = otro.GetComponentInParent<lvlCompObject>().overrideNextScene;
             levelComplete();
         }
 
@@ -241,17 +251,15 @@ public class PlayerCollisions : MonoBehaviour
             transformingFrom = transformingTo;
             transformingTo = "giraffe";
 
-            Debug.Log(animals[transformingTo]);
+            
         }
 
 
         mainScale = otro.GetComponentInParent<pisadorAnimal>().mainScale;
+        rb.mass = otro.GetComponentInParent<pisadorAnimal>().mass;
 
-        
-        rb.mass = animals[transformingTo]["mass"]; 
-
-        pJump.jumpForce = animals[transformingTo]["jump"];
-        pMovs.speed = animals[transformingTo]["speed"];
+        pJump.jumpForce = otro.GetComponentInParent<pisadorAnimal>().jump;
+        pMovs.speed = otro.GetComponentInParent<pisadorAnimal>().speed;
 
 
     }

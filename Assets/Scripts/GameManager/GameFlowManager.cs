@@ -11,7 +11,7 @@ namespace Unity.OBUCLE.Game
 
         [Header("SCENES")] [Tooltip("Scene to start on play")]
         public string StartScene = "StartScene";
-        public string nextScene;
+         [Tooltip("Default next scene")] public string nextScene;
 
         public bool canMove = false;
 
@@ -97,6 +97,7 @@ namespace Unity.OBUCLE.Game
 
         public void lvlEndFade(){
 
+         
             Debug.Log("LEVEL end... go to Fade");
             canMove = false;
             lvlCompleteFade.StartFading();

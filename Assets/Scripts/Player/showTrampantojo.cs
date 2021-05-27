@@ -28,9 +28,7 @@ float angel;
     void Update()
     {
 
-
-
-        
+       
 
 
         if(_completado){

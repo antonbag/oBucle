@@ -5,6 +5,8 @@ using Unity.OBUCLE.Game;
 public class lvlCompObject : MonoBehaviour
 {
     float x;
+
+    public string overrideNextScene;
     // Start is called before the first frame update
     void Start()
     {
