@@ -1289,6 +1289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectTrampantojo: {fileID: 10759779}
+  tests: 0
 --- !u!1 &441804548
 GameObject:
   m_ObjectHideFlags: 0
@@ -4235,7 +4236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1513676758563344295, guid: c1902804cd9ee3cf386f9bdb915947a7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.63
+      value: 50.62
       objectReference: {fileID: 0}
     - target: {fileID: 1513676758563344295, guid: c1902804cd9ee3cf386f9bdb915947a7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15236,7 +15237,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4306275785277717588, guid: aa811d6b0523ee7a196e48fbeea9571a, type: 3}
       propertyPath: mainScale
-      value: 30
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156680564012493568, guid: aa811d6b0523ee7a196e48fbeea9571a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.126
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156680564012493568, guid: aa811d6b0523ee7a196e48fbeea9571a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.031
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156680564012493568, guid: aa811d6b0523ee7a196e48fbeea9571a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156680564012493568, guid: aa811d6b0523ee7a196e48fbeea9571a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156680564012493568, guid: aa811d6b0523ee7a196e48fbeea9571a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 6737552661788915465, guid: aa811d6b0523ee7a196e48fbeea9571a, type: 3}
       propertyPath: m_RootOrder

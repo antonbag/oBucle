@@ -10,7 +10,7 @@ public class PlayerCollisions : MonoBehaviour
     
     [Header("Teriomorfismos")] [Tooltip("Cambiador de sizes")]
 
-
+    float mainScale = 1f;
 
     public Dictionary<string, Dictionary<string,float>> animals = new Dictionary<string, Dictionary<string,float>>(){
         {
@@ -110,7 +110,8 @@ public class PlayerCollisions : MonoBehaviour
         if(transformingTo == "human"){
            
 
-            if(scaleChange.x == animals[transformingTo]["mainScale"]) transforming = false;
+            //if(scaleChange.x == animals[transformingTo]["mainScale"]) transforming = false;
+            if(scaleChange.x == mainScale) transforming = false;
 
             //hay que crecer
             if(transformingFrom == "mouse"){
@@ -128,7 +129,8 @@ public class PlayerCollisions : MonoBehaviour
 
                 Debug.Log(animals[transformingTo]["mainScale"]);
 
-                if(scaleChange.x >= animals[transformingTo]["mainScale"]){
+                //if(scaleChange.x >= animals[transformingTo]["mainScale"]){
+                if(scaleChange.x >= mainScale){
                     //Debug.Log(collision.collider.name);
                     scaleChange -= scaleChange * Time.deltaTime;
                     mainCam.fieldOfView += animals[transformingTo]["mainFOV"]*Time.deltaTime;
@@ -142,7 +144,8 @@ public class PlayerCollisions : MonoBehaviour
 
         //GIRAFFE
         if(transformingTo == "giraffe"){
-            if(scaleChange.x <= animals[transformingTo]["mainScale"]){
+            //if(scaleChange.x <= animals[transformingTo]["mainScale"]){
+            if(scaleChange.x <= mainScale){
                 //Debug.Log(collision.collider.name);
                 scaleChange += scaleChange * Time.deltaTime;
                 mainCam.fieldOfView -= animals[transformingTo]["mainFOV"]*Time.deltaTime;
@@ -225,20 +228,25 @@ public class PlayerCollisions : MonoBehaviour
         if(otro.tag == "tinier"){
             transformingFrom = transformingTo;
             transformingTo = "mouse";
-            animals[transformingTo]["mainScale"] = otro.GetComponent<pisadorAnimal>().mainScale;
+            
         }
 
         if(otro.tag == "human"){
             transformingFrom = transformingTo;
             transformingTo = "human";
-            animals[transformingTo]["mainScale"] = otro.GetComponent<pisadorAnimal>().mainScale;
+
         }
-        
+
         if(otro.tag == "bigger"){
             transformingFrom = transformingTo;
             transformingTo = "giraffe";
-            animals[transformingTo]["mainScale"] = otro.GetComponent<pisadorAnimal>().mainScale;
+
+            Debug.Log(animals[transformingTo]);
         }
+
+
+        mainScale = otro.GetComponentInParent<pisadorAnimal>().mainScale;
+
         
         rb.mass = animals[transformingTo]["mass"]; 
 

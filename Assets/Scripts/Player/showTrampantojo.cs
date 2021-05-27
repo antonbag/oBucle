@@ -11,6 +11,8 @@ public class showTrampantojo : MonoBehaviour
 
     float _miTime = 0;
 
+    public bool tests = false;
+
     GameObject ojo;
 float angel;
 
@@ -32,13 +34,13 @@ float angel;
 
 
         if(_completado){
-            this.GetComponent<cameraShake>().trauma += 0.01f;
+            //this.GetComponent<cameraShake>().trauma += 0.01f;
             return;
         }
 
         checkVista();
 
-        if(_position && _vista){
+        if(_position && _vista || tests){
 
             _miTime += Time.deltaTime;
 
