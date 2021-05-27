@@ -23,7 +23,7 @@ public class PlayerJump : MonoBehaviour
         //test trampantojo
         showTrampantojo = FindObjectOfType<showTrampantojo>();
     }
-
+ 
     // Update is called once per frame
     void Update()
     {
