@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44658828, g: 0.49642313, b: 0.5748253, a: 1}
+  m_IndirectSpecularColor: {r: 0.4478463, g: 0.49783504, b: 0.57545245, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -214,7 +214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68991936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.02, y: 1.383, z: 4.81}
+  m_LocalPosition: {x: -1.02, y: 2.16, z: 4.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -243,7 +243,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -275,6 +275,10 @@ PrefabInstance:
       propertyPath: MenuRoot
       value: 
       objectReference: {fileID: 99486662}
+    - target: {fileID: 2908173750117499065, guid: def5ba9ffd432d73a8914349d7234dd8, type: 3}
+      propertyPath: aumentoFade
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 3362301682824787903, guid: def5ba9ffd432d73a8914349d7234dd8, type: 3}
       propertyPath: m_Colors.m_NormalColor.b
       value: 0
@@ -764,6 +768,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8192475737621352032, guid: bfea9f5b993b3ffe79fea7826d54ac4b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192475737621352032, guid: bfea9f5b993b3ffe79fea7826d54ac4b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192475737621352032, guid: bfea9f5b993b3ffe79fea7826d54ac4b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192475737621352032, guid: bfea9f5b993b3ffe79fea7826d54ac4b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfea9f5b993b3ffe79fea7826d54ac4b, type: 3}
 --- !u!114 &528533616 stripped
@@ -817,6 +837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
+  - component: {fileID: 705507996}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -893,13 +914,30 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.70622694, y: 0.46258435, z: 0.035263002, w: 0.5348044}
   m_LocalPosition: {x: 1.068, y: 5.545, z: -1.849}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 133.717, y: -52, z: -90}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0273d6977253b84a180e7a5558f9dcdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vel: 50
+  rot_min: 0
+  rot_max: 600
+  cadaSegundos: 0.001
+  actualizaSombrasSegundos: 0
 --- !u!1 &1260139292
 GameObject:
   m_ObjectHideFlags: 0

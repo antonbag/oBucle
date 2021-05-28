@@ -250,16 +250,19 @@ public class PlayerCollisions : MonoBehaviour
         if(otro.tag == "bigger"){
             transformingFrom = transformingTo;
             transformingTo = "giraffe";
+        } 
 
-            
+        if(
+            otro.tag == "bigger" ||
+            otro.tag == "tinier" ||
+            otro.tag == "human"
+        ){
+            mainScale = otro.GetComponentInParent<pisadorAnimal>().mainScale;
+            rb.mass = otro.GetComponentInParent<pisadorAnimal>().mass;
+
+            pJump.jumpForce = otro.GetComponentInParent<pisadorAnimal>().jump;
+            pMovs.speed = otro.GetComponentInParent<pisadorAnimal>().speed;
         }
-
-
-        mainScale = otro.GetComponentInParent<pisadorAnimal>().mainScale;
-        rb.mass = otro.GetComponentInParent<pisadorAnimal>().mass;
-
-        pJump.jumpForce = otro.GetComponentInParent<pisadorAnimal>().jump;
-        pMovs.speed = otro.GetComponentInParent<pisadorAnimal>().speed;
 
 
     }

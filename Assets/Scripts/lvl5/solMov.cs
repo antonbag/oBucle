@@ -6,7 +6,14 @@ public class solMov : MonoBehaviour
 {
 
     public float vel = 2f;
-    private float _rot = 130; 
+    float _rot = 130; 
+
+    public float rot_min = 110;
+    public float rot_max =150;
+
+
+    public float cadaSegundos = 5;
+    public bool actualizaSombrasSegundos = true;
     bool _actualiza;
     bool _subida;
     float _miTime = 0;
@@ -22,7 +29,7 @@ public class solMov : MonoBehaviour
     void Update()
     {
 
-        if(_miTime >= 5){
+        if(_miTime >= cadaSegundos){
            
             _miTime = 0;
             _actualiza = !_actualiza;
@@ -35,13 +42,16 @@ public class solMov : MonoBehaviour
 
     void actualizaSombras(){
 
-        if(_miTime <= 2) return;
+        if(actualizaSombrasSegundos){
+            if(_miTime <= 2) return;
+        }
 
-        if(_rot <=110){
+
+        if(_rot <=rot_min){
             _subida = true;
         }
 
-        if(_rot >=150){
+        if(_rot >=rot_max){
             _subida = false;
         }
 

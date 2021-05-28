@@ -31,11 +31,19 @@ float angel;
     void Update()
     {
 
-       
 
 
         if(_completado){
             //this.GetComponent<cameraShake>().trauma += 0.01f;
+
+             _miTime += Time.deltaTime;
+                if(_miTime >= 8){
+                    _miTime = 0;
+                    ojo.transform.position = new Vector3(ojo.transform.position.x,ojo.transform.position.y,ojo.transform.position.z-40);
+                    ojo.GetComponent<Rigidbody>().useGravity = true;
+                }
+
+
             return;
         }
 
@@ -51,7 +59,7 @@ float angel;
                     objectTrampantojo.SetActive(true);
                     objectTrampantojo.GetComponent<Rigidbody>().useGravity = true;
 
-                    //ojo.transform.position = new Vector3(-3.22f,259.95f,429.4f);
+
                     _completado = true;
 
                     //TERREMOTO!
