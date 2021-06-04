@@ -124,6 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3739010912612496594}
   - component: {fileID: -1299619190793538238}
+  - component: {fileID: 3160390634685814730}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -165,6 +166,14 @@ MonoBehaviour:
   nextScene: 
   canMove: 0
   globalFX: 1
+--- !u!81 &3160390634685814730
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7456094546785807652}
+  m_Enabled: 1
 --- !u!1 &7777816920707470470
 GameObject:
   m_ObjectHideFlags: 0

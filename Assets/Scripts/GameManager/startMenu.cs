@@ -10,14 +10,34 @@ namespace Unity.OBUCLE.UI
     {
 
         GameFlowManager gm;  
-        float _miTime = 0;
+        
 
         [Tooltip("Root GameObject of the menu used to toggle its activation")]
         public GameObject MenuRoot;
 
-        bool _shown = false;
-        public float aumentoFade = 0.01f;
-        float fadeIn = 0f;
+        [Header("Cosas para el futuro ------------------>")]
+
+        [Tooltip("Master volume when menu is open")] [Range(0.001f, 1f)]
+        public float VolumeWhenMenuOpen = 0.5f;
+
+        [Tooltip("Slider component for look sensitivity")]
+        public Slider LookSensitivitySlider;
+
+        [Tooltip("Toggle component for shadows")]
+        public Toggle ShadowsToggle;
+
+        [Tooltip("Toggle component for invincibility")]
+        public Toggle InvincibilityToggle;
+
+        [Tooltip("Toggle component for framerate display")]
+        public Toggle FramerateToggle;
+
+        [Tooltip("GameObject for the controls")]   
+        public GameObject ControlImage;
+
+        //PlayerInputHandler m_PlayerInputsHandler;
+        //Health m_PlayerHealth;
+        //FramerateCounter m_FramerateCounter;
 
         public void GoToScene(bool show)
         {
@@ -29,29 +49,79 @@ namespace Unity.OBUCLE.UI
         void Start()
         {
 
- 
+            //gm = FindObjectOfType<GameFlowManager>();
+            
+            //Debug.Log(gm.GetComponent<GameFlowManager>().canMove);
+            //Debug.Log(gm.canMove);
+
+            /*         
+            
+            m_PlayerInputsHandler = FindObjectOfType<PlayerInputHandler>();
+            DebugUtility.HandleErrorIfNullFindObject<PlayerInputHandler, InGameMenuManager>(m_PlayerInputsHandler,
+                this);
+
+            m_PlayerHealth = m_PlayerInputsHandler.GetComponent<Health>();
+            DebugUtility.HandleErrorIfNullGetComponent<Health, InGameMenuManager>(m_PlayerHealth, this, gameObject);
+
+            m_FramerateCounter = FindObjectOfType<FramerateCounter>();
+            DebugUtility.HandleErrorIfNullFindObject<FramerateCounter, InGameMenuManager>(m_FramerateCounter, this);
+
+            LookSensitivitySlider.value = m_PlayerInputsHandler.LookSensitivity;
+            LookSensitivitySlider.onValueChanged.AddListener(OnMouseSensitivityChanged);
+
+            ShadowsToggle.isOn = QualitySettings.shadows != ShadowQuality.Disable;
+            ShadowsToggle.onValueChanged.AddListener(OnShadowsChanged);
+
+            InvincibilityToggle.isOn = m_PlayerHealth.Invincible;
+            InvincibilityToggle.onValueChanged.AddListener(OnInvincibilityChanged);
+
+            FramerateToggle.isOn = m_FramerateCounter.UIText.gameObject.activeSelf;
+            FramerateToggle.onValueChanged.AddListener(OnFramerateCounterChanged); 
+
+            MenuRoot.SetActive(false);
+                        
+            */  
         }
 
         // Update is called once per frame
         void Update()
         {
-         if(fadeIn>=1.0f){
-                _shown=true;
-            }
-            if(_shown) return;
-
-    
-
-            Debug.Log(aumentoFade);
-            _miTime += Time.deltaTime;
-            
-            if(_miTime >= 1){
-                fadeIn+=aumentoFade;
-                gameObject.GetComponentInChildren<CanvasGroup>().alpha = fadeIn;
+/* 
+            // Lock cursor when clicking outside of menu
+            if (!MenuRoot.activeSelf && Input.GetMouseButtonDown(0))
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
             }
 
-   
-            
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+
+            if (Input.GetButtonDown(GameConstants.k_ButtonNamePauseMenu)
+                || (MenuRoot.activeSelf && Input.GetButtonDown(GameConstants.k_ButtonNameCancel)))
+            {
+                if (ControlImage.activeSelf)
+                {
+                    ControlImage.SetActive(false);
+                    return;
+                }
+
+                SetPauseMenuActivation(!MenuRoot.activeSelf);
+
+            }
+
+            if (Input.GetAxisRaw(GameConstants.k_AxisNameVertical) != 0)
+            {
+                if (EventSystem.current.currentSelectedGameObject == null)
+                {
+                    EventSystem.current.SetSelectedGameObject(null);
+                    LookSensitivitySlider.Select();
+                }
+            }
+             */
         }
         
 

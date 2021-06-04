@@ -363,7 +363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &102467258
 Transform:
   m_ObjectHideFlags: 0
@@ -1072,7 +1072,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 11.95
+    angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -12907,10 +12907,6 @@ PrefabInstance:
     - target: {fileID: 1296364991446085165, guid: bfea9f5b993b3ffe79fea7826d54ac4b, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1296364991446085165, guid: bfea9f5b993b3ffe79fea7826d54ac4b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1296364991446085167, guid: bfea9f5b993b3ffe79fea7826d54ac4b, type: 3}
       propertyPath: isGlobal
