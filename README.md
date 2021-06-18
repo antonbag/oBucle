@@ -22,3 +22,6 @@ Bien, ahora que ya te he podido orientar un poco, te dejo que disfrutes de esta 
  
 
 ¡Adelante, esto es oBucle! 
+
+
+https://upvedues.sharepoint.com/sites/MARIMBA/Documentos%20compartidos/General/Entregables/obucle_gameplay.mp4
